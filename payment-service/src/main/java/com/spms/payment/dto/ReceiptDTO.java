@@ -20,7 +20,6 @@ public class ReceiptDTO {
     private String description;
     private PaymentStatus status;
 
-    // Additional receipt-specific fields
     private String receiptNote;
     private String merchantName = "Smart Parking Management";
     private String merchantAddress = "123 Parking St, City";
