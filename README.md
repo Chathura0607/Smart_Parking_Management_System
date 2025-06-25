@@ -36,7 +36,6 @@ Urban cities face critical challenges with parking congestion and inefficient sp
 | Spring Cloud Config   | Centralized config management                            |
 | Spring Cloud Gateway  | API Gateway for routing                                  |
 | Postman               | API testing and simulation                               |
-| Optional: Flask / Node.js | For lightweight service alternatives (not used here) |
 
 ---
 
@@ -78,7 +77,7 @@ SPMS/
 ├── postman_collection.json
 ├── docs/
 │   └── screenshots/
-│       └── eureka_dashboard.png
+│       └── screenshots/img.png
 └── README.md
 ```
 
