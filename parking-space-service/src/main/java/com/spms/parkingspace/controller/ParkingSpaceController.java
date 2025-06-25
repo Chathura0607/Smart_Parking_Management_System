@@ -18,16 +18,16 @@ import java.util.Map;
 @RequestMapping("/api/v1/parking-spaces")
 @CrossOrigin(origins = "*")
 public class ParkingSpaceController {
-    
+
     @Autowired
     private ParkingSpaceService parkingSpaceService;
-    
+
     @GetMapping
     public ResponseEntity<List<ParkingSpace>> getAllParkingSpaces() {
         List<ParkingSpace> spaces = parkingSpaceService.getAllParkingSpaces();
         return ResponseEntity.ok(spaces);
     }
-    
+
     @GetMapping("/{id}")
     public ResponseEntity<ParkingSpace> getParkingSpaceById(@PathVariable("id") Long id) {
         try {
@@ -37,7 +37,7 @@ public class ParkingSpaceController {
             return ResponseEntity.notFound().build();
         }
     }
-    
+
     @PostMapping
     public ResponseEntity<ParkingSpace> createParkingSpace(@Valid @RequestBody ParkingSpaceRequest request) {
         try {
@@ -47,10 +47,10 @@ public class ParkingSpaceController {
             return ResponseEntity.badRequest().build();
         }
     }
-    
+
     @PutMapping("/{id}")
     public ResponseEntity<ParkingSpace> updateParkingSpace(@PathVariable("id") Long id,
-                                                          @Valid @RequestBody ParkingSpaceRequest request) {
+                                                           @Valid @RequestBody ParkingSpaceRequest request) {
         try {
             ParkingSpace updatedSpace = parkingSpaceService.updateParkingSpace(id, request);
             return ResponseEntity.ok(updatedSpace);
@@ -58,7 +58,7 @@ public class ParkingSpaceController {
             return ResponseEntity.notFound().build();
         }
     }
-    
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteParkingSpace(@PathVariable("id") Long id) {
         try {
@@ -68,43 +68,43 @@ public class ParkingSpaceController {
             return ResponseEntity.notFound().build();
         }
     }
-    
+
     @GetMapping("/available")
     public ResponseEntity<List<ParkingSpace>> getAvailableParkingSpaces() {
         List<ParkingSpace> availableSpaces = parkingSpaceService.getAvailableParkingSpaces();
         return ResponseEntity.ok(availableSpaces);
     }
-    
+
     @GetMapping("/city/{city}")
     public ResponseEntity<List<ParkingSpace>> getParkingSpacesByCity(@PathVariable("city") String city) {
         List<ParkingSpace> spaces = parkingSpaceService.getParkingSpacesByCity(city);
         return ResponseEntity.ok(spaces);
     }
-    
+
     @GetMapping("/zone/{zone}")
     public ResponseEntity<List<ParkingSpace>> getParkingSpacesByZone(@PathVariable("zone") String zone) {
         List<ParkingSpace> spaces = parkingSpaceService.getParkingSpacesByZone(zone);
         return ResponseEntity.ok(spaces);
     }
-    
+
     @GetMapping("/owner/{ownerId}")
     public ResponseEntity<List<ParkingSpace>> getParkingSpacesByOwner(@PathVariable("ownerId") String ownerId) {
         List<ParkingSpace> spaces = parkingSpaceService.getParkingSpacesByOwner(ownerId);
         return ResponseEntity.ok(spaces);
     }
-    
+
     @GetMapping("/available/city/{city}")
     public ResponseEntity<List<ParkingSpace>> getAvailableParkingSpacesByCity(@PathVariable("city") String city) {
         List<ParkingSpace> spaces = parkingSpaceService.getAvailableParkingSpacesByCity(city);
         return ResponseEntity.ok(spaces);
     }
-    
+
     @GetMapping("/available/zone/{zone}")
     public ResponseEntity<List<ParkingSpace>> getAvailableParkingSpacesByZone(@PathVariable("zone") String zone) {
         List<ParkingSpace> spaces = parkingSpaceService.getAvailableParkingSpacesByZone(zone);
         return ResponseEntity.ok(spaces);
     }
-    
+
     @PostMapping("/reserve")
     public ResponseEntity<ParkingSpace> reserveParkingSpace(@Valid @RequestBody ReservationRequest request) {
         try {
@@ -114,7 +114,7 @@ public class ParkingSpaceController {
             return ResponseEntity.badRequest().build();
         }
     }
-    
+
     @PutMapping("/{id}/release")
     public ResponseEntity<ParkingSpace> releaseParkingSpace(@PathVariable("id") Long id) {
         try {
@@ -124,7 +124,7 @@ public class ParkingSpaceController {
             return ResponseEntity.notFound().build();
         }
     }
-    
+
     @PutMapping("/{id}/occupy")
     public ResponseEntity<ParkingSpace> occupyParkingSpace(@PathVariable("id") Long id) {
         try {
@@ -134,10 +134,10 @@ public class ParkingSpaceController {
             return ResponseEntity.badRequest().build();
         }
     }
-    
+
     @PutMapping("/{id}/status")
     public ResponseEntity<ParkingSpace> updateSpaceStatus(@PathVariable("id") Long id,
-                                                         @RequestParam SpaceStatus status) {
+                                                          @RequestParam SpaceStatus status) {
         try {
             ParkingSpace updatedSpace = parkingSpaceService.updateSpaceStatus(id, status);
             return ResponseEntity.ok(updatedSpace);
@@ -145,13 +145,13 @@ public class ParkingSpaceController {
             return ResponseEntity.notFound().build();
         }
     }
-    
+
     @GetMapping("/statistics")
     public ResponseEntity<Map<String, Object>> getParkingStatistics() {
         Map<String, Object> stats = parkingSpaceService.getParkingStatistics();
         return ResponseEntity.ok(stats);
     }
-    
+
     @GetMapping("/statistics/city/{city}")
     public ResponseEntity<Map<String, Object>> getParkingStatisticsByCity(@PathVariable("city") String city) {
         Map<String, Object> stats = parkingSpaceService.getParkingStatisticsByCity(city);
