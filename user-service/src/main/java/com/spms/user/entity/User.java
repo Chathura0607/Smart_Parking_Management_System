@@ -19,38 +19,38 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @NotBlank(message = "Username is required")
     @Column(unique = true)
     private String username;
-    
+
     @NotBlank(message = "Email is required")
     @Email(message = "Invalid email format")
     @Column(unique = true)
     private String email;
-    
+
     @NotBlank(message = "Password is required")
     private String password;
-    
+
     @NotBlank(message = "First name is required")
     private String firstName;
-    
+
     @NotBlank(message = "Last name is required")
     private String lastName;
-    
+
     @Pattern(regexp = "^\\+?[1-9]\\d{1,14}$", message = "Invalid phone number format")
     private String phoneNumber;
-    
+
     @Enumerated(EnumType.STRING)
     private UserRole role = UserRole.DRIVER;
-    
+
     @Enumerated(EnumType.STRING)
     private UserStatus status = UserStatus.ACTIVE;
-    
+
     private LocalDateTime createdAt = LocalDateTime.now();
-    
+
     private LocalDateTime updatedAt = LocalDateTime.now();
-    
+
     private LocalDateTime lastLoginAt;
 
     public User(String username, String email, String encode, String firstName, String lastName, String phoneNumber, UserRole role) {
