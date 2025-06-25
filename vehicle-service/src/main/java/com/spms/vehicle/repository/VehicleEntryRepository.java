@@ -10,14 +10,14 @@ import java.util.Optional;
 
 @Repository
 public interface VehicleEntryRepository extends JpaRepository<VehicleEntry, Long> {
-    
+
     List<VehicleEntry> findByVehicleId(Long vehicleId);
-    
+
     List<VehicleEntry> findByParkingSpaceId(Long parkingSpaceId);
-    
+
     List<VehicleEntry> findByStatus(EntryStatus status);
-    
+
     Optional<VehicleEntry> findByVehicleIdAndStatus(Long vehicleId, EntryStatus status);
-    
+
     List<VehicleEntry> findByVehicleIdOrderByEntryTimeDesc(Long vehicleId);
 }
