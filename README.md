@@ -101,7 +101,7 @@ All REST API endpoints have been **fully tested** using Postman.
 
 Here’s the live registration of services visible via Eureka:
 
-![Eureka Dashboard](./docs/screenshots/eureka_dashboard.png)
+![Eureka Dashboard](doc/screenshots/img.png)
 
 ---
 
